@@ -21,7 +21,7 @@ spec:
   strategy:
     canary:
       steps:
-        - experiment:
+      - experiment:
           duration: 60s
           templates:
           - name: preview
