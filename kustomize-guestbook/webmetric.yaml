@@ -9,7 +9,7 @@ spec:
   metrics:
   - name: http-benchmark
     failureLimit: 1
-    count: 3
+    count: 5
     provider:
       job:
         spec:
