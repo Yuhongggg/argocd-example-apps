@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: webmetric
+  namespace: mock-oauth
+spec:
+  metrics:
+  - name: webmetric
+    provider:
+      web:
+        jsonPath: '{$.results.ok}'
+        timeoutSeconds: 20
+        url: https://mock-oauth:8700/oauth/token
+    successCondition: result == 'true'
