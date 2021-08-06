@@ -21,7 +21,7 @@ spec:
   strategy:
     canary:
       canaryService: guestbook-ui-canary
-      stableService: guestbook
+      stableService: guestbook-ui
       canaryMetadata:
         annotations:
           role: canary
