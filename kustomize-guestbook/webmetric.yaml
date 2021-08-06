@@ -10,6 +10,9 @@ spec:
   - name: image
   metrics:
   - name: http-benchmark
+    failureLimit: 3
+    interval: 5s
+    count: 1
     provider:
       job:
         spec:
