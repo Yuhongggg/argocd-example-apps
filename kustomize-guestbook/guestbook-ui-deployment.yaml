@@ -19,28 +19,29 @@ spec:
         ports:
         - containerPort: 80
   strategy:
-    canaryService: guestbook-ui-canary
-    stableService: guestbook-ui
-    canaryMetadata:
-      annotations:
-        role: canary
-      labels:
-        role: canary
-    stableMetadata:
-      annotations:
-        role: stable
-      labels:
-        role: stable
-    steps:
-    - setCanaryScale:
-        replicas: 1
-    - pause: {duration: 1m}
-    - analysis:
-        templates:
-          - templateName: webmetrics
-    trafficRouting:
-      istio:
-        virtualService:
-          name: rollout-vsvc  # required
-          routes:
-            - primary
+    canary:
+      canaryService: guestbook-ui-canary
+      stableService: guestbook-ui
+      canaryMetadata:
+        annotations:
+          role: canary
+        labels:
+          role: canary
+      stableMetadata:
+        annotations:
+          role: stable
+        labels:
+          role: stable
+      steps:
+      - setCanaryScale:
+          replicas: 1
+      - pause: {duration: 1m}
+      - analysis:
+          templates:
+            - templateName: webmetrics
+      trafficRouting:
+        istio:
+          virtualService:
+            name: rollout-vsvc  # required
+            routes:
+              - primary
