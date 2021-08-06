@@ -10,8 +10,6 @@ spec:
   - name: host
   metrics:
   - name: http-benchmark
-    failureLimit: 100
-    interval: 5s
     provider:
       job:
         spec:
@@ -23,6 +21,6 @@ spec:
                 command: [sh, -xec]
                 args:
                 - |
-                  sleep 240
+                  exit 1
               restartPolicy: Never
           backoffLimit: 0

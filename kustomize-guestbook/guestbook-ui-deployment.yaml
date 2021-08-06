@@ -21,20 +21,9 @@ spec:
   strategy:
     canary:
       steps:
-      - experiment:
-          duration: 30m
-          templates:
-          - name: canary-experiment
-            specRef: example-experiment
-            selector:
-              matchLabels:
-                app: guestbook-ui
-            metadata:
-              labels:
-                app: guestbook-ui
-          analyses:
-          - name: load-test
-            templateName: http-benchmark
-            args:
-            - name: host
-              value: guestbook-ui
+        analyses:
+        - name: load-test
+          templateName: http-benchmark
+          args:
+          - name: host
+            value: guestbook-ui
