@@ -20,7 +20,7 @@ spec:
         - containerPort: 80
   strategy:
     canary:
-      analyses:
+      analysis:
       - name: load-test
         templateName: http-benchmark
         args:
