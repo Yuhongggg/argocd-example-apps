@@ -24,7 +24,7 @@ spec:
       - experiment:
           duration: 30m
           templates:
-          - name: 
+          - name: canary-experiment
             specRef: example-experiment
             selector:
               matchLabels:
