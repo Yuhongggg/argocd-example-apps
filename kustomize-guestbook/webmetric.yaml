@@ -6,8 +6,6 @@ kind: AnalysisTemplate
 metadata:
   name: http-benchmark
 spec:
-  args:
-  - name: image
   metrics:
   - name: http-benchmark
     failureLimit: 3
