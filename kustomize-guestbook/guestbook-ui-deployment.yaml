@@ -20,10 +20,9 @@ spec:
         - containerPort: 80
   strategy:
     canary:
-      steps:
-        analyses:
-        - name: load-test
-          templateName: http-benchmark
-          args:
-          - name: host
-            value: guestbook-ui
+      analyses:
+      - name: load-test
+        templateName: http-benchmark
+        args:
+        - name: host
+          value: guestbook-ui
