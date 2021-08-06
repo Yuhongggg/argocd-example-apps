@@ -10,7 +10,7 @@ spec:
   - name: http-benchmark
     failureLimit: 3
     interval: 5s
-    count: 1
+    count: 20
     provider:
       job:
         spec:
@@ -22,6 +22,6 @@ spec:
                 command: [sh, -xec]
                 args:
                 - |
-                  exit 1
+                  sleep 30; exit 1
               restartPolicy: Never
           backoffLimit: 0
