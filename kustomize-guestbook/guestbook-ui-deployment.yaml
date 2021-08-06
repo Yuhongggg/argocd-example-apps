@@ -23,4 +23,4 @@ spec:
       steps:
       - analysis:
           templates:
-          - templateName: kustomize-http-benchmark
+          - templateName: http-benchmark
