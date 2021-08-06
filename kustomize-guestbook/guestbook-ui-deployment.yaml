@@ -22,48 +22,19 @@ spec:
     canary:
       steps:
       - experiment:
-          duration: 60s
+          duration: 30m
           templates:
-          - name: preview
-            # specRef is a convenience reference indicating that the canary's pod spec should be used in this experiment.
-            specRef: canary
-            # The preview template's selector/labels are overwritten so that they are different
-            # than the rollout's selector, allowing it to be reached separately
+          - name: 
+            specRef: example-experiment
             selector:
               matchLabels:
-                app: preview
+                app: guestbook-ui
             metadata:
               labels:
-                app: preview
-          # The 'load-test' AnalysisTemplate uses `wrk` to perform benchmarking. See: load-test-analysis.yaml
+                app: guestbook-ui
           analyses:
           - name: load-test
             templateName: http-benchmark
             args:
             - name: host
-              value: preview-testing
-      # canaryService: guestbook-ui-canary
-      # stableService: guestbook-ui
-      # canaryMetadata:
-      #   annotations:
-      #     role: canary
-      #   labels:
-      #     role: canary
-      # stableMetadata:
-      #   annotations:
-      #     role: stable
-      #   labels:
-      #     role: stable
-      # steps:
-      # - setCanaryScale:
-      #     replicas: 1
-      # - pause: {duration: 1m}
-      # - analysis:
-      #     templates:
-      #       - templateName: webmetrics
-      # trafficRouting:
-      #   istio:
-      #     virtualService:
-      #       name: rollout-vsvc  # required
-      #       routes:
-      #         - primary
+              value: guestbook-ui
