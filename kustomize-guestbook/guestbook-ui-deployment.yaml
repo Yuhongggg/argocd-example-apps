@@ -20,18 +20,18 @@ spec:
         - containerPort: 80
   strategy:
     canary:
-      canaryService: guestbook-ui-canary
-      stableService: guestbook-ui
-      canaryMetadata:
-        annotations:
-          role: canary
-        labels:
-          role: canary
-      stableMetadata:
-        annotations:
-          role: stable
-        labels:
-          role: stable
+      # canaryService: guestbook-ui-canary
+      # stableService: guestbook-ui
+      # canaryMetadata:
+      #   annotations:
+      #     role: canary
+      #   labels:
+      #     role: canary
+      # stableMetadata:
+      #   annotations:
+      #     role: stable
+      #   labels:
+      #     role: stable
       steps:
       - setCanaryScale:
           replicas: 1
