@@ -8,9 +8,8 @@ metadata:
 spec:
   metrics:
   - name: http-benchmark
-    failureLimit: 3
-    interval: 5s
-    count: 20
+    failureLimit: 1
+    count: 3
     provider:
       job:
         spec:
