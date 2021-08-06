@@ -7,7 +7,7 @@ metadata:
   name: http-benchmark
 spec:
   args:
-  - name: host
+  - name: image
   metrics:
   - name: http-benchmark
     provider:
@@ -17,7 +17,7 @@ spec:
             spec:
               containers:
               - name: load-tester
-                image: argoproj/load-tester:latest
+                image: {{args.image}}
                 command: [sh, -xec]
                 args:
                 - |

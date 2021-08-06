@@ -21,8 +21,10 @@ spec:
   strategy:
     canary:
       analysis:
-        name: load-test
-        templateName: http-benchmark
+        templates:
+          templateName: http-benchmark
         args:
-        - name: host
-          value: guestbook-ui
+        - name: image
+          value:
+            fieldPaths:
+            - spec.template.spec.containers.0.image
