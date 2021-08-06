@@ -20,6 +20,7 @@ spec:
         - containerPort: 80
   strategy:
     canary:
-      analysis:
-        templates:
-        - templateName: kustomize-http-benchmark
+      steps:
+      - analysis:
+          templates:
+          - templateName: kustomize-http-benchmark
