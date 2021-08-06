@@ -23,8 +23,3 @@ spec:
       analysis:
         templates:
           templateName: http-benchmark
-        args:
-        - name: image
-          value:
-            fieldPaths:
-            - spec.template.spec.containers.0.image
