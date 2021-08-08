@@ -20,7 +20,15 @@ spec:
         - containerPort: 80
   strategy:
     canary:
+      canaryService: guestbook-ui-canary
       steps:
-      - analysis:
+      - experiment:
           templates:
-          - templateName: http-benchmark
+          - name: example-experiment
+            specRef: example-experiment
+          analyses:
+          - name : http-benchmark
+            templateName: http-benchmark
+            args:
+            - name: host
+              value: guestbook-ui-canary

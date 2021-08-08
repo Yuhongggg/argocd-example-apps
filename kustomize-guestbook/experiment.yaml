@@ -3,7 +3,6 @@ kind: Experiment
 metadata:
   name: example-experiment
 spec:
-  duration: 30m
   progressDeadlineSeconds: 30
   templates:
   - name: canary
@@ -18,7 +17,7 @@ spec:
       spec:
         containers:
         - name: guestbook-ui
-          image: argoproj/rollouts-demo:purple
+          image: hashicorp/http-echo:latest
           imagePullPolicy: Always
           ports:
           - name: http

@@ -6,6 +6,8 @@ kind: AnalysisTemplate
 metadata:
   name: http-benchmark
 spec:
+  args:
+  - name: host
   metrics:
   - name: http-benchmark
     failureLimit: 1
@@ -18,10 +20,10 @@ spec:
             spec:
               containers:
               - name: http-benchmark
-                image: argoproj/load-tester:latest
+                image: dwdraju/alpine-curl-jq:latest
                 command: [sh, -xec]
                 args:
                 - |
-                  sleep 5; exit 0
+                  curl http://{args.host} | jq
               restartPolicy: Never
           backoffLimit: 0
