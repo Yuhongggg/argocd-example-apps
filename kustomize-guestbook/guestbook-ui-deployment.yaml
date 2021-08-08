@@ -14,9 +14,7 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: hashicorp/http-echo:latest
-        args:
-          - "-text='hello world'"
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
         name: guestbook-ui
         ports:
         - containerPort: 80
