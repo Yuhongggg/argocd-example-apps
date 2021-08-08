@@ -18,6 +18,8 @@ spec:
         containers:
         - name: guestbook-ui
           image: hashicorp/http-echo:latest
+          args:
+            - "-text='hello world'"
           imagePullPolicy: Always
           ports:
           - name: http
