@@ -5,7 +5,7 @@ metadata:
 spec:
   progressDeadlineSeconds: 30
   templates:
-  - name: canary
+  - name: example-experiment
     replicas: 1
     selector:
       matchLabels:
