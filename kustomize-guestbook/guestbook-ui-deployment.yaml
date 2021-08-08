@@ -14,7 +14,9 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: ealen/echo-server:latest
+      - image: hashicorp/http-echo:latest
+        args:
+          - "-text='hello world'"
         name: guestbook-ui
         ports:
         - containerPort: 80
